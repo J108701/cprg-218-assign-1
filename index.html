@@ -9,18 +9,80 @@
   <link rel="stylesheet" type="text/css" href="/styles/fonts.css">
   <link rel="stylesheet" type="text/css" href="/styles/global.css">
   <link rel="stylesheet" type="text/css" href="styles/assignment-one-starter.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  
   <title>Responsive CSS Layout</title>
   <style>
-    @font-face {
-        font-family: 'Comic Sans MS';
-        src: url('path/to/your/comic-sans.ttf') format('truetype'); 
-    }
     body {
-        font-family: 'Comic Sans MS', cursive, sans-serif; 
+        font-family: 'Pacifico', cursive;
     }
     .header-container {
         background-color: #fcd16d; 
         padding: 20px; 
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card {
+      box-sizing: border-box;
+      padding: 20px;
+      margin: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1199px) {
+      .card {
+        width: calc(50% - 20px);
+      }
+      .card-container li:last-child {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .card-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .header-container h1, .header-container h2, .card-content h3, .card-content h4, .card-content p {
+      font-family: 'Pacifico', cursive;
     }
   </style>
 </head>
@@ -29,6 +91,7 @@
     <h1>CheeseVerse: The World of Cheese</h1>
     <h2>Responsive CSS Layout</h2>
   </div>
+  <section class="container">
   <section class="container">
     <ul class="card-container">
       <li class="card">
@@ -96,7 +159,7 @@
         </div>
       </li>
       <li class="card">
-        <img src="assets/Gruyère cheese.jpeg" alt="Gruyère">
+        <img src="assets/Gruyère cheese.jpeg" alt="Gruyère">
         <div class="card-content">
           <h3 class="subheader">Cheese Type</h3>
           <h4 class="header">Gruyère</h4>
