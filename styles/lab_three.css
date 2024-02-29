@@ -67,20 +67,19 @@
 }
 
 /* Mobile styles */
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (max-width: 768px) {
   .card {
-    width: calc(50% - 20px);
+      width: 100%; /* 在手机上卡片占据全宽 */
   }
-  .card-container li:last-child {
-    width: 100%;
-  }
-  }
+}
 
 /* Tablet styles */
 @media (min-width: 769px) and (max-width: 1199px) {
   .card {
       width: calc(50% - 20px); 
-      
+  }
+  .card-container .card:last-child {
+      width: 100%; 
   }
 }
 
@@ -90,6 +89,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     grid-gap: 20px;
+  }
+  .card {
+    width: auto; 
+    margin: 10px; 
   }
 }
 
